@@ -19,13 +19,7 @@ return new class extends Migration
             $table->string('tipe', 20); // (gaun, kebaya, jas, basofi, beskap)
             $table->string('warna', 20);
             $table->string('ukuran', 5); // (S, M, L1, L2, L3, L4, L5, L6)
-            $table->text('foto1');
-            $table->text('foto2');
-            $table->text('foto3');
-            $table->text('foto4');
-            $table->text('foto5');
-            $table->text('foto6');
-            $table->text('video');
+            $table->text('video')->nullable();
             $table->integer('harga');
         });
     }
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('busana');
+        Schema::dropIfExists('busanas');
     }
 };

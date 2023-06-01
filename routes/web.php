@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusanaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,4 +33,17 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    // Route::get('/dashboard/busana/buat', function () {
+    //     return Inertia::render('Busana/Buat');
+    // })->name('dashboard');
+
+
+    Route::get('/dashboard/busana', [BusanaController::class, 'index'])->name('indexBusana');
+    Route::get('/dashboard/busana/buat', [BusanaController::class, 'create'])->name('createFormBusana');
+    Route::get('/dashboard/busana/ubah/{id}', [BusanaController::class, 'edit'])->name('editFormBusana');
+
+    Route::post('/busana', [BusanaController::class, 'store'])->name('buatBusana');
+    Route::post('/busana/ubah', [BusanaController::class, 'update'])->name('ubahBusana');
+    Route::delete('/busana/hapus', [BusanaController::class, 'destroy'])->name('hapusBusana');
 });

@@ -41,7 +41,7 @@ const removeFromCart = (id) => {
 
 						<div v-for="b in busana"
 							class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-							<a href="#">
+							<Link :href="route('busanaShow', {id: b.id})">
 
 
 
@@ -99,12 +99,12 @@ const removeFromCart = (id) => {
 
 
 
-							</a>
+							</Link>
 							<div class="px-5 pb-5 mt-5">
-								<a href="#">
+								<Link :href="route('busanaShow', {id: b.id})">
 									<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
 										{{ b.nama }}</h5>
-								</a>
+									</Link>
 								<div class="flex items-center mt-2.5 mb-5">
 									<span
 										class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 capitalize">{{

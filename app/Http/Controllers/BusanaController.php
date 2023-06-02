@@ -157,4 +157,11 @@ class BusanaController extends Controller
             'busana' => Busana::with('fotos')->get()
         ]);
     }
+
+    public function busanaShow(Request $request, Busana $id)
+    {
+        return Inertia::render('Busana/Show', [
+            'busana' => Busana::with('fotos')->find($id)->first()
+        ]);
+    }
 }

@@ -53,6 +53,7 @@ Route::middleware([
 });
 
 Route::get('/busana', [BusanaController::class, 'busanaList'])->name('busanaList');
+Route::get('/busana/{id}', [BusanaController::class, 'busanaShow'])->name('busanaShow');
 
 Route::get('/booking', [BookingController::class, 'create'])->name('createFormBooking');
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('showBooking');

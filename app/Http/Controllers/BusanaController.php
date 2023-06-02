@@ -150,4 +150,11 @@ class BusanaController extends Controller
 
         Busana::destroy($request->id);
     }
+
+    public function busanaList(Request $request, Busana $id)
+    {
+        return Inertia::render('Busana/List', [
+            'busana' => Busana::with('fotos')->get()
+        ]);
+    }
 }

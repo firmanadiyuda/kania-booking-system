@@ -15,7 +15,7 @@ onMounted(() => {
 
 const removeFromCart = (id) => {
 	store.commit('removeFromCart', id)
-	console.log(store.state.cart)
+	// console.log(store.state.cart)
 };
 
 const logout = () => {
@@ -91,7 +91,7 @@ const logout = () => {
 
 						</li>
 
-						<div class="px-2 pt-4">
+						<div class="px-2 pt-4" v-if="Object.keys(store.state.cart).length !== 0">
 
 							<Link :href="route('createFormBooking')"
 								class=" flex text-white justify-center w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -102,6 +102,10 @@ const logout = () => {
 									class="fill-gray-200"></path>
 							</svg>
 							</Link>
+						</div>
+
+						<div class="p-6 py-4" v-else>
+							Tidak ada item di keranjang.
 						</div>
 
 					</ul>
@@ -169,7 +173,7 @@ const logout = () => {
 							</ul>
 							<div class="py-1">
 								<form @submit.prevent="logout()">
-									<button type="submit" 
+									<button type="submit"
 										class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Log
 										out</button>
 								</form>
